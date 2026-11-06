@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Faiz Fadllan – Portofolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1F3F8;--surface:#FFFFFF;--ink:#14213D;--muted:#55607A;--line:#D9DEEA;
+  --accent:#2B4EFF;--accent-ink:#FFFFFF;--warm:#FFB703;--soft:#E3E8FF;
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1426;--surface:#17203A;--ink:#EEF1FA;--muted:#9AA6C4;--line:#2A3556;--accent:#7C93FF;--accent-ink:#0E1426;--soft:#222E57;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1426;--surface:#17203A;--ink:#EEF1FA;--muted:#9AA6C4;--line:#2A3556;--accent:#7C93FF;--accent-ink:#0E1426;--soft:#222E57;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+section h2{font-size:clamp(30px,4.5vw,44px);font-weight:800;margin-bottom:12px}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 40px}
+
+/* Navbar */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:center;height:64px}
+.logo{font:800 20px var(--head);text-decoration:none}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;align-items:center}
+nav ul a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px}
+nav ul a:hover{background:var(--soft)}
+
+.github-top{position:fixed;top:18px;right:24px;z-index:30;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);box-shadow:0 8px 18px rgba(20,33,61,.08);color:var(--ink);text-decoration:none;transition:transform .2s ease, background .2s ease}
+.github-top:hover{transform:translateY(-1px)}
+.github-top svg{width:20px;height:20px;display:block}
+
+.theme-toggle{
+  position:fixed;right:24px;bottom:24px;z-index:40;
+  width:54px;height:54px;border-radius:50%;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  box-shadow:0 10px 30px rgba(20,33,61,.12);cursor:pointer;
+  display:grid;place-items:center;overflow:hidden;padding:0;
+}
+.theme-toggle .icon{position:relative;width:24px;height:24px;display:block}
+.theme-toggle .sun,
+.theme-toggle .moon{position:absolute;inset:0;display:grid;place-items:center;font-size:22px;transition:transform .25s ease,opacity .25s ease}
+.theme-toggle .sun{opacity:1;transform:translateY(0)}
+.theme-toggle .moon{opacity:0;transform:translateY(12px)}
+html[data-theme="dark"] .theme-toggle .sun{opacity:0;transform:translateY(-12px)}
+html[data-theme="dark"] .theme-toggle .moon{opacity:1;transform:translateY(0)}
+
+/* Buttons */
+.btn{display:inline-block;padding:14px 26px;border-radius:12px;font-weight:500;text-decoration:none;border:2px solid var(--accent);cursor:pointer;font:500 16px var(--body)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+
+/* Hero */
+.hero{padding:96px 0 72px}
+.hero .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.status{display:inline-flex;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;margin-bottom:24px}
+.status i{width:9px;height:9px;border-radius:50%;background:#1FB66B;display:block}
+.hero h1{font-size:clamp(44px,8vw,88px);font-weight:800;margin-bottom:20px}
+.hero p{font-size:19px;color:var(--muted);max-width:48ch;margin:0 0 32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.portrait{aspect-ratio:4/5;border-radius:200px 200px 24px 24px;background:linear-gradient(160deg,var(--accent),#7A3CFF);position:relative;overflow:hidden;display:grid;place-items:end center}
+.portrait small{position:absolute;bottom:16px;z-index:2;color:#fff;font-size:13px;opacity:.85}
+
+/* About + Skills */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{margin:0 0 16px;max-width:60ch}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.fact b{display:block;font:800 34px var(--head);color:var(--accent)}
+.fact span{color:var(--muted);font-size:15px}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.skills li{list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 16px;font-weight:500;font-size:15px}
+.skills-group{margin-bottom:28px}
+.skills-group h3{font-size:18px;margin-bottom:10px;color:var(--muted);font-weight:700}
+.skills-group ul{margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+
+/* Projects */
+.filters{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 18px;font:500 15px var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card[hidden]{display:none}
+.thumb{aspect-ratio:1346/640;position:relative;overflow:hidden;background:#fff;border-radius:12px;margin-bottom:20px}
+.thumb::before,.thumb::after{content:none}
+.t1{background:linear-gradient(135deg,#2B4EFF,#6B8BFF)}.t1::before{display:none}.t1::after{display:none}
+.t2{background:#FFB703}.t2::before{width:46%;aspect-ratio:1;border-radius:50%;background:#14213D;left:14%;top:20%}.t2::after{width:30%;height:56%;right:14%;top:22%;background:#fff}
+.t3{background:#14213D}.t3::before{inset:22% 40% 22% 12%;background:#7C93FF}.t3::after{inset:22% 12% 50% 64%;background:#FFB703}
+.t4{background:linear-gradient(160deg,#1FB66B,#0E7C66)}.t4::before{inset:16% 20%;background:#fff;opacity:.9;border-radius:50%}.t4::after{width:22%;aspect-ratio:1;right:14%;bottom:14%;background:#14213D;border-radius:50%}
+.t5{background:#E94F37}.t5::before{inset:20% 14% 20% 14%;border:6px solid #fff;background:transparent}.t5::after{inset:38% 34%;background:#fff}
+.t6{background:linear-gradient(135deg,#7A3CFF,#FF6BA8)}.t6::before{inset:20% 50% 20% 12%;background:#fff;opacity:.9}.t6::after{inset:34% 14% 20% 56%;background:#14213D}
+.card .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:22px;font-weight:700}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.meta{font-size:14px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tags span{background:var(--soft);border-radius:6px;padding:3px 10px;font-size:13px;font-weight:500}
+.links{display:flex;gap:16px;font-weight:500;font-size:15px;padding-top:6px}
+.links a{color:var(--accent)}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:0 0 0 26px;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 36px 20px}
+.timeline li::before{content:"";position:absolute;left:-36px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--accent);border:4px solid var(--bg)}
+.timeline h3{font-size:21px;font-weight:700}
+.timeline .when{color:var(--muted);font-size:14.5px;margin:2px 0 6px}
+.timeline p{margin:0;max-width:62ch;color:var(--muted)}
+
+/* Testimonial */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+blockquote{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+blockquote p{margin:0 0 18px;font-size:18px}
+blockquote footer{font-size:15px;color:var(--muted)}
+blockquote footer b{color:var(--ink);display:block}
+
+/* Contact */
+.contact{max-width:560px}
+.contact ul{list-style:none;margin:0 0 24px;padding:0}
+.contact li{padding:12px 0;border-bottom:1px solid var(--line)}
+.contact li span{display:block;font-size:14px;color:var(--muted)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;gap:16px}
+label{font-weight:500;font-size:15px;display:grid;gap:6px}
+input,textarea{font:400 16px var(--body);padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:120px;resize:vertical}
+#sent{margin:0;color:#1FB66B;font-weight:500}
+
+footer.site{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:15px}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer.site a{margin-left:16px}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px}
+.panel-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:20px}
+.panel-head h3{font-size:clamp(20px,3vw,26px);font-weight:700;max-width:34ch}
+.panel p{margin:0 0 16px;max-width:68ch;color:var(--muted)}
+.panel h4{font:700 16px var(--head);margin:0 0 8px}
+.badge{background:var(--soft);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:500;white-space:nowrap}
+.badge.gold{background:var(--warm);color:#14213D;font-weight:700}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
+.ticks{margin:0;padding-left:20px;color:var(--muted)}.ticks li{margin-bottom:8px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.metrics div{background:var(--bg);border-radius:12px;padding:14px}
+.metrics b{display:block;font:800 30px var(--head);color:var(--accent)}
+.metrics span{font-size:13.5px;color:var(--muted);line-height:1.3;display:block}
+.cs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-bottom:20px}
+.cs p{margin:0}
+.panel .tags{padding:0 0 16px}.cs .tags{padding:0}
+.certs{list-style:none;margin:0;padding:0}
+.certs li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.certs span{color:var(--muted)}
+.panel .links{padding-top:0}
+@media (max-width:760px){
+  .two{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .hero .grid,.about,.contact{grid-template-columns:1fr}
+  .portrait{max-width:300px}
+  nav ul a{padding:8px 9px;font-size:14px}
+  nav ul li.hide-sm{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<!-- 1. NAVIGASI -->
+<header>
+  <nav class="wrap" aria-label="Navigasi utama">
+    <ul>
+      <li class="hide-sm"><a href="#about">Tentang</a></li>
+      <li><a href="#experience">Pengalaman</a></li>
+      <li><a href="#publications">Publikasi</a></li>
+      <li class="hide-sm"><a href="#project">Project</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
+  <a class="github-top" href="https://github.com/faizfadllan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.11.79-.25.79-.56v-2.13c-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.14 1.18a10.87 10.87 0 0 1 5.72 0c2.17-1.49 3.13-1.18 3.13-1.18.63 1.59.24 2.76.12 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.35.78 1.04.78 2.1v3.12c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+    </svg>
+  </a>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap grid">
+    <div>
+      <h1>Halo, saya Muhammad Faiz Fadllan.</h1>
+      <p>cybersecurity enthusiast yang mempelajari analisis kerentanan.</p>
+      <div class="cta">
+        <a class="btn primary" href="#publications">Baca publikasi</a>
+        <a class="btn ghost" href="#contact">Hubungi saya</a>
+      </div>
+    </div>
+    <div class="portrait" role="img" aria-label="Foto profil Muhammad Faiz Fadllan" style="background-image:url('https://i.ibb.co/0pyxXJNk/IMG-20260407-WA0095.jpg'); background-size:cover; background-position:center;"></div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="about">
+  <div class="wrap">
+    <h2>Tentang saya</h2>
+    <p class="lead">Latar belakang dan minat saya.</p>
+    <p style="max-width:62ch;margin:0;font-size:19px">Fresh graduate Teknologi Informasi dari Universitas Amikom Purwokerto dengan pengalaman magang sebagai Junior Cybersecurity Engineer melalui program MSIB. Terampil dalam troubleshooting, analisis jaringan, monitoring sistem, dokumentasi teknis, dan dukungan operasional TI. Termotivasi untuk menerapkan pengetahuan teknis, menyelesaikan masalah yang kompleks, dan berkontribusi secara efektif dalam organisasi yang kolaboratif dan berbasis teknologi.</p>
+  </div>
+</section>
+
+<!-- PENGALAMAN -->
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <h2>Pengalaman</h2>
+    <p class="lead">Pengalaman magang lewat program MSIB (Magang dan Studi Independen Bersertifikat).</p>
+    <article class="panel">
+      <div class="panel-head">
+        <div><h3>Junior Cybersecurity Engineer (MSIB Batch 2)</h3><div class="meta">PT. Vinix Seven Aurum (VINIX7), Sleman, Yogyakarta</div></div>
+        <span class="badge">Feb 2025 – Jun 2025</span>
+      </div>
+      <h4>Tugas dan tanggung jawab</h4>
+      <ul class="ticks" style="max-width:78ch">
+        <li>Melakukan black-box penetration testing pada website menggunakan Arachni dan teknik manual; menemukan dan memvalidasi celah XSS dan CSRF serta mendokumentasikan jalur eksploitasinya.</li>
+        <li>Melakukan asesmen jaringan dan kerentanan dengan Wireshark, OpenVAS, dan Nessus; menganalisis temuan dan menyusun laporan teknis berisi rekomendasi perbaikan yang diprioritaskan dan dapat ditindaklanjuti.</li>
+        <li>Menggunakan Aircrack-ng untuk asesmen keamanan nirkabel dan memvalidasi vektor serangan di lingkungan terkontrol.</li>
+        <li>Menjalankan investigasi digital forensics dengan Autopsy, FTK Imager, dan Foremost untuk memulihkan file yang terhapus dan merekonstruksi linimasa aktivitas sistem.</li>
+        <li>Men-deploy dan mengonfigurasi agen Wazuh SIEM untuk pengumpulan log real-time, alerting, dan triase insiden dasar.</li>
+        <li>Menerapkan enkripsi email PGP dan membuat sertifikat HTTPS dengan OpenSSL dalam simulasi Public Key Infrastructure (PKI) untuk mendemonstrasikan komunikasi aman dan praktik pengelolaan kunci.</li>
+        <li>Berkontribusi dalam penyusunan kebijakan keamanan TI yang mencakup kesadaran phishing, perlindungan data, dan audit kontrol akses; menjaga dokumentasi teknis mingguan dan menyerahkan laporan proyek akhir yang komprehensif.</li>
+      </ul>
+      <h4 style="margin-top:24px">Tools yang digunakan</h4>
+      <div class="tags"><span>Arachni</span><span>Wireshark</span><span>OpenVAS</span><span>Nessus</span><span>Aircrack-ng</span><span>Autopsy</span><span>FTK Imager</span><span>Foremost</span><span>Wazuh</span><span>PGP</span><span>OpenSSL</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- PUBLIKASI -->
+<section id="publications" style="padding-top:0">
+  <div class="wrap">
+    <h2>Publikasi</h2>
+    <p class="lead">Penelitian saya tentang pengujian keamanan yang terbit di jurnal nasional terakreditasi.</p>
+    <article class="panel">
+      <div class="panel-head">
+        <div><h3>Evaluasi Celah Keamanan Cross-Site Scripting (XSS) pada Website Menggunakan Black-box Penetration Testing</h3><div class="meta">Vol 23 No 1 (2026): Jurnal Algoritma</div></div>
+        <span class="badge gold">SINTA 3</span>
+      </div>
+      <p>Website xyz.or.id merupakan sebuah lembaga penelitian yang mengelola data dan informasi. Mengingat pentingnya data yang dikelola, website ini rentan menjadi sasaran serangan siber, terutama Cross-Site Scripting (XSS) yang dapat menimbulkan risiko serius seperti pencurian data dan pembajakan sesi pengguna. Penelitian ini berfokus pada investigasi keamanan terhadap mekanisme validasi input pada sistem pendaftaran. Penelitian bertujuan untuk mengidentifikasi dan menganalisis kerentanan keamanan pada website xyz.or.id menggunakan metode black-box penetration testing. Metode penelitian mencakup tahapan information gathering, penetration testing analysis, dan report. Hasil pengujian mengidentifikasi total 6 kerentanan keamanan, terklasifikasi menjadi 2 tingkat tinggi (high), 1 menengah (medium), dan 3 rendah (low). Analisis uji penetrasi menemukan adanya kerentanan XSS pada form input "Nama Lengkap" di halaman pendaftaran, di mana payload yang diinjeksikan berhasil dieksekusi di sisi klien. Temuan ini memberikan bukti empiris bahwa mekanisme validasi input dan kebijakan keamanan website belum optimal. Penelitian ini menghasilkan rekomendasi teknis perbaikan, meliputi implementasi input validation, output encoding, dan konfigurasi Content Security Policy (CSP) untuk mencegah terjadinya eksploitasi dari pihak luar.</p>
+      <div class="tags"><span>Black-box Penetration Testing</span><span>Cross-Site Scripting (XSS)</span><span>Keamanan Website</span><span>Penetration Testing</span></div>
+      <div class="links"><a href="https://doi.org/10.33364/algoritma/v.23-1.3122" target="_blank" rel="noopener noreferrer">Baca artikel</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- PROYEK BOOTCAMP -->
+<section id="project" style="padding-top:0">
+  <div class="wrap">
+    <h2>Project</h2>
+    <p class="lead"></p>
+    <article class="panel">
+      <div class="thumb t1" style="background-image:url('https://i.ibb.co.com/QvLKWw3q/posty-parfume.png'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+      <div class="panel-head">
+        <span class="badge">full-stack</span>
+      </div>
+      <div class="cs">
+        <div><h4>Posty Parfume</h4><p>Project ini dibuat dari hasil menyelesaikan kelas Revolusi Deployment: Bangun Website dengan AI Assist dan Deploy Instan + Secure di EdgeOne dalam program Kelas Online CODEPOLITAN.</p></div>
+        <div><h4>Tools</h4><div class="tags"><span>React</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>JWT</span></div></div>
+      </div>
+      <div class="links"><a href="https://dummypostyparfume.edgeone.dev/" target="_blank" rel="noopener noreferrer">Demo</a><a href="https://github.com/faizfadllan/dummy-posty-parfume" target="_blank" rel="noopener noreferrer">Repository GitHub</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <h2>Mari terhubung</h2>
+    <p class="lead">Terbuka untuk magang dan bekerja.</p>
+    <div class="contact">
+      <div>
+        <ul>
+          <li><span>Email</span><a href="mailto:faizfadllan@gmail.com">faizfadllan@gmail.com</a></li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/muhammadfaizfadllan/" target="_blank" rel="noopener noreferrer">linkedin.com/in/muhammadfaizfadllan</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Muhammad Faiz Fadllan. Semua hak dilindungi.</span>
+    <span><a href="#home">Kembali ke atas</a></span>
+  </div>
+</footer>
+
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Ganti tema">
+  <span class="icon" aria-hidden="true">
+    <span class="sun">☀</span>
+    <span class="moon">☾</span>
+  </span>
+</button>
+
+<script>
+// Filter proyek
+document.querySelectorAll('.filters button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    var f=b.dataset.f;
+    document.querySelectorAll('.card').forEach(function(c){c.hidden=(f!=='all'&&c.dataset.c!==f)});
+  });
+});
+// Ganti tema
+var themeToggle=document.getElementById('theme-toggle');
+var applyTheme=function(mode){
+  var dark=mode==='dark';
+  document.documentElement.dataset.theme=dark?'dark':'light';
+  themeToggle.setAttribute('aria-label',dark?'Ubah ke mode cerah':'Ubah ke mode gelap');
+};
+var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+applyTheme(document.documentElement.dataset.theme || (prefersDark ? 'dark' : 'light'));
+themeToggle.addEventListener('click',function(){
+  var current=document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
+</script>
+</body>
+</html>
